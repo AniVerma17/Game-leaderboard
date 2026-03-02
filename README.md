@@ -75,9 +75,11 @@ Following trade-offs are made in the project development due to time constraints
 from the viewmodel without any transformation.
 - Only the core logic of the leaderboard is covered by local unit tests. No local or instrumentation tests are written as of now for other components like repositories, viewmodels or composables.
 - No local file storage or database is implemented to store the users and their scores. Instead, the users' scores are started from zero in each app run, and are updated continuously until the app is terminated.
+- Handling of errors and edge cases was skipped. Although this is fine for the current implementation, real-world applications require handling any potential errors originating from the data sources.
 
 ## Areas for future improvements
 - Improve the handling of score updates for large number of users (10K, 100K) by sending only the data of modified scores from the data source instead of the entire list of users and their scores.
+- Add robust error handling logic in the data layer, and properly pass the relevant error messages to the domain and presentation layers.
 - Add more UI animations to indicate score updates when rankings remain unchanged.
 - Add unit tests and UI tests to cover app components like UI composables, viewmodel etc.
 - Implement persistent storage for user scores, preferably in a local SQLite database.
